@@ -14,5 +14,5 @@ fs.writeFile(outputFilePath, markdownOutput, 'utf8', (err) => {
     return;
   }
 
-  console.log(`✅ Successfully created ${fileName}!`);
+  console.log(`✅ Successfully created ${outputFilePath}!`);
 });
