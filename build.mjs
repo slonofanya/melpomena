@@ -1,18 +1,25 @@
 import fs from "fs"
-import { convertJsonToMd } from "./utils.mjs"
+import { convertJsonToHTML, convertJsonToHTMLFull } from "./utils.mjs"
 
-const filePath = "./my-riven-heart.json"
-const outputFilePath = "./public/index.html"
+const arr = [
+  [
+    "./public/index.html",
+    convertJsonToHTML(JSON.parse(fs.readFileSync("./my-riven-heart.json", "utf8")))
+  ],
+  [
+    "./public/index_full.html",
+    convertJsonToHTMLFull(JSON.parse(fs.readFileSync("./my-riven-heart-full.json", "utf8")))
+  ]
+]
 
-const fileContent = fs.readFileSync(filePath, "utf8")
-const json = JSON.parse(fileContent)
-const markdownOutput = convertJsonToMd(json);
+arr.forEach((item) => {
+  const [filePath, html] = item;
+  fs.writeFile(filePath, html, 'utf8', (err) => {
+    if (err) {
+      console.error(`An error occurred while writing the file: ${err}`);
+      return;
+    }
 
-fs.writeFile(outputFilePath, markdownOutput, 'utf8', (err) => {
-  if (err) {
-    console.error(`An error occurred while writing the file: ${err}`);
-    return;
-  }
-
-  console.log(`✅ Successfully created ${outputFilePath}!`);
-});
+    console.log(`✅ Successfully created!`);
+  });
+})
