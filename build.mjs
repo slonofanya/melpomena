@@ -8,7 +8,7 @@ const arr = [
   ],
   [
     "./public/index.html",
-    convertJsonToHTMLFull(JSON.parse(fs.readFileSync("./my-riven-heart-full.json", "utf8")))
+    convertJsonToHTMLFull(JSON.parse(fs.readFileSync("./my-riven-heart.json", "utf8")))
   ]
 ]
 
