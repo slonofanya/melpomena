@@ -3,11 +3,11 @@ import { convertJsonToHTML, convertJsonToHTMLFull } from "./utils.mjs"
 
 const arr = [
   [
-    "./public/index.html",
+    "./public/index-short.html",
     convertJsonToHTML(JSON.parse(fs.readFileSync("./my-riven-heart.json", "utf8")))
   ],
   [
-    "./public/index_full.html",
+    "./public/index.html",
     convertJsonToHTMLFull(JSON.parse(fs.readFileSync("./my-riven-heart-full.json", "utf8")))
   ]
 ]
