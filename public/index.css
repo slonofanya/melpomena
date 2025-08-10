@@ -1,0 +1,78 @@
+  * {
+    box-sizing: border-box;
+  }
+
+  body {
+    margin: 0;
+    padding: 0;
+    background: #000;
+  }
+
+  .container {
+    background: url('./images/bg.png') no-repeat center center fixed;
+    max-width: 100vw;
+    height: 100vh;
+  }
+
+  .bg {
+    background: rgba(0, 0, 0, 0.5);
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    width: 1000px;
+    height: 100vh;
+    padding: 20px;
+  }
+
+  .poems {
+    flex: 1;
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+  }
+
+  .poem {
+    position:absolute;
+    inset:0;
+    z-index: 0;
+    opacity: 0;
+    display: inline-block;
+    flex: 1;
+    text-decoration: none;
+    text-shadow: 1px 1px #000;
+    color: #ffffff;
+    font-family: system-ui;
+    width: 100%;
+    height: 100%;
+
+    /* hidden by default */
+    opacity:0;
+    transform:translateX(20px) scale(.995);
+    pointer-events:none;
+    transition:opacity .45s ease, transform .45s ease;
+    background-size:cover;
+    background-position:center;
+  }
+
+  .poem:target{
+    opacity: 1;
+    transform: none;
+    pointer-events: auto;
+    z-index: 1;
+  }
+
+  .subjects {
+    height: 30px;
+    width: 100%;
+  }
+
